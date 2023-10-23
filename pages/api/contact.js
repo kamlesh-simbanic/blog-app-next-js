@@ -1,5 +1,6 @@
 function Handler(req, res) {
   if (req.method == "POST") {
+    console.log(req.body);
     const { email, name, message } = req.body;
 
     if (
@@ -8,7 +9,7 @@ function Handler(req, res) {
       !name ||
       name.trim() === "" ||
       !message ||
-      message.trim() == ""
+      message.trim() === ""
     ) {
       res.status(422).json({ message: "Invalid Input." });
       return;
@@ -24,7 +25,7 @@ function Handler(req, res) {
 
     res
       .status(201)
-      .json({ message: "Successfully stored message!", message: newMessage });
+      .json({ message: "Successfully stored message!", data: newMessage });
   }
 }
 
