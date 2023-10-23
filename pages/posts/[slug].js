@@ -22,7 +22,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const postFilesNames = getPostFiles();
   const slugs = postFilesNames.map((fileName) => fileName.replace(/\.md$/, ""));
-
+  console.log(slugs);
   return {
     paths: slugs.map((slug) => ({ params: { slug: slug } })),
     fallback: false,
